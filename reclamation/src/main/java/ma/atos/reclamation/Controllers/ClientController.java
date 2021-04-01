@@ -1,7 +1,7 @@
 package ma.atos.reclamation.Controllers;
 
 import ma.atos.reclamation.Models.Client;
-import ma.atos.reclamation.Service.ClientService;
+import ma.atos.reclamation.Services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
