@@ -11,11 +11,10 @@ import javax.persistence.Table;
 @Data
 @AllArgsConstructor
 
-public class Client {
-    @Id
-    private Long thirdPartyNumber;
-    private String cin;
-    private Long accountNumber;
-    private String ppm;
 
+public class Rating {
+    @Id
+    private Long id;
+    private String commentaire;
+    private Double notes;
 }
