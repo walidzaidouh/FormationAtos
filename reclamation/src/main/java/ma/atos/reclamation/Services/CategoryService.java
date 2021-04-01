@@ -1,7 +1,6 @@
-package ma.atos.reclamation.Service;
+package ma.atos.reclamation.Services;
 
 import ma.atos.reclamation.Models.Category;
-import ma.atos.reclamation.Models.Client;
 
 import java.util.List;
 import java.util.Optional;

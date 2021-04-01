@@ -1,4 +1,4 @@
-package ma.atos.reclamation.Service;
+package ma.atos.reclamation.Services;
 
 import ma.atos.reclamation.Models.Client;
 

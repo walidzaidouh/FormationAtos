@@ -1,7 +1,7 @@
-package ma.atos.reclamation.Service;
+package ma.atos.reclamation.Services;
 
 import ma.atos.reclamation.Models.Client;
-import ma.atos.reclamation.Repository.ClientRepository;
+import ma.atos.reclamation.Repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

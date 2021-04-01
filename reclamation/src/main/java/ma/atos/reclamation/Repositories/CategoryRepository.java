@@ -1,4 +1,4 @@
-package ma.atos.reclamation.Repository;
+package ma.atos.reclamation.Repositories;
 
 import ma.atos.reclamation.Models.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
