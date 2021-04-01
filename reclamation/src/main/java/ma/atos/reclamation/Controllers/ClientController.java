@@ -2,6 +2,7 @@ package ma.atos.reclamation.Controllers;
 
 import ma.atos.reclamation.Models.Client;
 import ma.atos.reclamation.Services.ClientService;
+import ma.atos.reclamation.Services.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ import java.util.Optional;
 
 public class ClientController {
     @Autowired
-    private ClientService clientService;
+    private ClientServiceImpl clientService;
 
     @PostMapping
     public Client add(@RequestBody Client client) {
