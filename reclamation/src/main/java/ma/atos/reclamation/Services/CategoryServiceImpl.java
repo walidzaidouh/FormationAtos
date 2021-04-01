@@ -3,6 +3,9 @@ package ma.atos.reclamation.Services;
 import ma.atos.reclamation.Models.Category;
 import ma.atos.reclamation.Repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 
 public class CategoryServiceImpl implements CategoryService{
     @Autowired

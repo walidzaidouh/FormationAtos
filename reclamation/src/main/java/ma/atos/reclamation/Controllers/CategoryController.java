@@ -4,9 +4,10 @@ package ma.atos.reclamation.Controllers;
 import ma.atos.reclamation.Models.Category;
 import ma.atos.reclamation.Services.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
 
-
+@Configuration
 
 @RestController
 @RequestMapping("/categories")
