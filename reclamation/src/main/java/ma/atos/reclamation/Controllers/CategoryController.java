@@ -2,7 +2,7 @@ package ma.atos.reclamation.Controllers;
 
 
 import ma.atos.reclamation.Models.Category;
-import ma.atos.reclamation.Services.CategoryService;
+import ma.atos.reclamation.Services.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class CategoryController {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
-    private CategoryService categoryService;
+    private CategoryServiceImpl categoryService;
 
     @PostMapping
     public Category add(@RequestBody Category category) {
