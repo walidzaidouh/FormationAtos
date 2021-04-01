@@ -12,28 +12,39 @@ import java.util.Optional;
 public class ClientServiceImpl implements ClientService{
     @Autowired
     private ClientRepository clientRepository;
+
+    @Override
+    public Client add(Client client) {
+        return clientRepository.save(client);
+
+    }
+
+    @Override
+    public Client update(long thirdPartyNumber, Client client) {
+        client.setThirdPartyNumber(thirdPartyNumber);
+        return clientRepository.save(client);
+
+    }
+
+    @Override
+    public void deleteById(long thirdPartyNumber) {
+        clientRepository.deleteById(thirdPartyNumber);
+
+    }
+
+    @Override
+    public Optional<Client> findById(Long thirdPartyNumber) {
+        return clientRepository.findById(thirdPartyNumber);
+    }
+
     @Override
     public List<Client> findAll() {
         return clientRepository.findAll();
 
     }
 
-    @Override
-    public Client update(long id, Client client) {
-        client.setThirdPartyNumber(id);
-        return clientRepository.save(client);
 
-    }
 
-    @Override
-    public Optional<Client> findById(Long id) {
-        return clientRepository.findById(id);
-    }
 
-    @Override
-    public void deleteById(long id) {
-        clientRepository.deleteById(id);
-
-    }
 
 }
