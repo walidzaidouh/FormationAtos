@@ -18,5 +18,4 @@ public class Client {
     private Long accountNumber;
     private String ppm;
 
-
 }

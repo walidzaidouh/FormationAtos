@@ -18,14 +18,11 @@ public class RatingController {
     @PostMapping
     public Rating add(@RequestBody Rating rating) {
         return ratingService.add(rating);
-
     }
 
     @PutMapping("/{id}")
-    public Rating update(@PathVariable long id , @RequestBody Rating rating) {
-
-        return ratingService.update(id,rating);
-
+    public Rating update(@PathVariable long id, @RequestBody Rating rating) {
+        return ratingService.update(id, rating);
     }
 
     @DeleteMapping("/{id}")
@@ -42,7 +39,6 @@ public class RatingController {
     public List<Rating> findAll() {
         return ratingService.findAll();
     }
-
 
 
 }
