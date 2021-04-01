@@ -17,4 +17,7 @@ public class Client {
     private Long accountNumber;
     private String ppm;
 
+
+    public void setId(long id) {
+    }
 }
