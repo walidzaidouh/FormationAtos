@@ -1,4 +1,4 @@
-package ma.atos.reclamation.models;
+package ma.atos.reclamation.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

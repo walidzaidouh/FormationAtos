@@ -1,11 +1,10 @@
-package ma.atos.reclamation.models;
+package ma.atos.reclamation.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Data
