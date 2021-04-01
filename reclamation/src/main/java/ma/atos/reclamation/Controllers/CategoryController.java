@@ -1,20 +1,20 @@
 package ma.atos.reclamation.Controllers;
 
+
 import ma.atos.reclamation.Models.Category;
-import ma.atos.reclamation.Service.CategoryService;
+import ma.atos.reclamation.Services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+
 
 @RestController
 @RequestMapping("/categories")
 
 public class CategoryController {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private CategoryService categoryService;
-
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
 
     @PostMapping
     public Category add(@RequestBody Category category) {
@@ -28,13 +28,10 @@ public class CategoryController {
         return categoryService.update(Id,category);
 
     }
-    @DeleteMapping("/{Id}")
 
+    @DeleteMapping("/{Id}")
     public void deleteById(@PathVariable int Id) {
         categoryService.deleteById(Id);
     }
-
-
-
 
 }
