@@ -22,11 +22,12 @@ public class ClientController {
     }
 
     @PutMapping("/{thirdPartyNumber}")
-    public Client update(@PathVariable long thirdPartyNumber , @RequestBody Client client) {
+    public Client update(@PathVariable long thirdPartyNumber, @RequestBody Client client) {
 
-        return clientService.update(thirdPartyNumber,client);
+        return clientService.update(thirdPartyNumber, client);
 
     }
+
     @DeleteMapping("/{thirdPartyNumber}")
     public void deleteById(@PathVariable long thirdPartyNumber) {
         clientService.deleteById(thirdPartyNumber);
@@ -41,11 +42,6 @@ public class ClientController {
     public List<Client> findAll() {
         return clientService.findAll();
     }
-
-
-
-
-
 
 
 }
