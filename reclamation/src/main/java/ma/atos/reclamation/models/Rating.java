@@ -10,8 +10,6 @@ import javax.persistence.Table;
 @Entity
 @Data
 @AllArgsConstructor
-
-
 public class Rating {
     @Id
     private Long id;
