@@ -18,6 +18,4 @@ public class Client {
     private String ppm;
 
 
-    public void setId(long id) {
-    }
 }

@@ -19,9 +19,9 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public Client update(long id, Client c) {
-        c.setId(id);
-        return clientRepository.save(c);
+    public Client update(long id, Client client) {
+        client.setThirdPartyNumber(id);
+        return clientRepository.save(client);
 
     }
 
