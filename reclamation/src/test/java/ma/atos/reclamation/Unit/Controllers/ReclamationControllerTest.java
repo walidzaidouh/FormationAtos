@@ -1,4 +1,4 @@
-package ma.atos.reclamation.Controllers;
+package ma.atos.reclamation.Unit.Controllers;
 
 import ma.atos.reclamation.Services.ReclamationService;
 import ma.atos.reclamation.Services.ReclamationServiceImpl;
@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-public class ReclamationControllerTest {
+public class ReclamationControllerTest{
 
     @Autowired
     private MockMvc mockMvc;

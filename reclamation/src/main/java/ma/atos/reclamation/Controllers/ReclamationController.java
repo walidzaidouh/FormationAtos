@@ -1,6 +1,7 @@
 package ma.atos.reclamation.Controllers;
 
 import ma.atos.reclamation.Models.Reclamation;
+import ma.atos.reclamation.Services.ReclamationService;
 import ma.atos.reclamation.Services.ReclamationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import java.util.Optional;
 @RequestMapping("/reclamations")
 public class ReclamationController {
     @Autowired
-    ReclamationServiceImpl reclamationService;
+    ReclamationService reclamationService;
 
     // add reclamation method
     @PostMapping
