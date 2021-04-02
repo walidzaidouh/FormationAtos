@@ -1,11 +1,15 @@
 package ma.atos.reclamation;
 
 import ma.atos.reclamation.Models.Client;
+import ma.atos.reclamation.Models.Reclamation;
 import ma.atos.reclamation.Repositories.ClientRepository;
+import ma.atos.reclamation.Repositories.ReclamationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.Date;
 
 @SpringBootApplication
 public class ReclamationApplication {
@@ -14,14 +18,12 @@ public class ReclamationApplication {
 		SpringApplication.run(ReclamationApplication.class, args);
 	}
 	@Bean
-	CommandLineRunner start(ClientRepository client_repo) {
+	CommandLineRunner start(ReclamationRepository reclamationRepository) {
 		return args -> {
-			client_repo.deleteAll();
-			Client user1 = new Client((long)1, "BE81468", (long)25054, "link_avatar1.jpg");
-			client_repo.save(user1);
-
-
-
+			//reclamationRepository.deleteAll();
+			Date date_now = new Date();
+			Reclamation reclamation = new Reclamation("1221", "urgent", date_now, "gestionaire", "boody");
+			reclamationRepository.save(reclamation);
 		};
 	}
 }
