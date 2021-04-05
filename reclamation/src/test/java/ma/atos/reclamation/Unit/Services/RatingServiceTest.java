@@ -69,4 +69,27 @@ public class RatingServiceTest {
         assertEquals("Bien", returned.get().getCommentaire());
         verify(ratingRepository, times(1)).findById(1L);
     }
+    @Test
+    public void testAddRatingOk(){
+        //Given
+
+        //When
+        when(ratingRepository.save(rating)).thenReturn(rating);
+
+        //Then
+        Rating returned = ratingRepository.save(rating);
+
+        assertNotNull(returned);
+        assertEquals(rating, returned);
+        assertEquals("Bien", returned.getCommentaire());
+        verify(ratingRepository, times(1)).save(rating);
+    }
+
+    @Test
+    public void testDeleteByIdOk() {
+        //Then
+        ratingService.deleteById(1L);
+
+        verify(ratingRepository, times(1)).deleteById(1L);
+    }
 }
