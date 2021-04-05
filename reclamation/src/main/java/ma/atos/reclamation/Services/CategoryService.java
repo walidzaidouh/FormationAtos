@@ -10,8 +10,8 @@ import java.util.Optional;
 public interface CategoryService {
 
     public abstract Category add(Category category);
-    public abstract Category update(int id , Category category);
-    public abstract void deleteById(int id);
+    public abstract Category update(Long id , Category category);
+    public abstract void deleteById(Long id);
 
 
 
