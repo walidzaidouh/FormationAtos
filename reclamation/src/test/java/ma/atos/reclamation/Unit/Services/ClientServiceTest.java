@@ -69,4 +69,19 @@ public class ClientServiceTest {
         assertEquals("BE777777", returned.get().getCin());
         verify(clientRepository, times(1)).findById(1L);
     }
+    @Test
+    public void testAddClientOk(){
+        //Given
+
+        //When
+        when(clientRepository.save(client)).thenReturn(client);
+
+        //Then
+        Client returned = clientRepository.save(client);
+
+        assertNotNull(returned);
+        assertEquals(client, returned);
+        assertEquals("BE777777", returned.getCin());
+        verify(clientRepository, times(1)).save(client);
+    }
 }
