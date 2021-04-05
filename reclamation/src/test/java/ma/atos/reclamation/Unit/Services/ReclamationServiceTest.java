@@ -51,6 +51,7 @@ public class ReclamationServiceTest {
         assertEquals("XF555", returnedList.get(0).getReference());
         verify(reclamationRepository, times(1)).findAll();
     }
+
     @Test
     public void testFindReclamationById() {
         //Given
@@ -68,21 +69,9 @@ public class ReclamationServiceTest {
         verify(reclamationRepository, times(1)).findById("XF555");
 
     }
-    @Test
-    public void testFindReclamationByIdWithIdNullOk() {
-        //Given
-        Optional<Reclamation> reclamationOpt = Optional.empty();
-
-        //Then
-        Optional<Reclamation> returned = reclamationService.findById(null);
-
-        assertEquals(Optional.empty(), returned);
-        verify(reclamationRepository, times(0)).findById(null);
-    }
-
 
     @Test
-    public void testAddReclamationOk(){
+    public void testAddReclamationOk() {
         //When
         when(reclamationRepository.save(reclamation)).thenReturn(reclamation);
 
@@ -121,7 +110,6 @@ public class ReclamationServiceTest {
         assertEquals("Normal", returned.getPriority());
         verify(reclamationRepository, times(1)).save(new_reclamation);
     }
-
 
 
 }
