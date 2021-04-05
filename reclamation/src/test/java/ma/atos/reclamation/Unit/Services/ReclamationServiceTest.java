@@ -63,11 +63,65 @@ public class ReclamationServiceTest {
         Optional<Reclamation> returned = reclamationService.findById("XF555");
 
         assertNotNull(returned);
-        //assertEquals(reclamation, returned.get());
+        assertEquals(reclamation, returned.orElse(null));
         assertEquals("Urgent", returned.get().getPriority());
         verify(reclamationRepository, times(1)).findById("XF555");
 
     }
+    @Test
+    public void testFindReclamationByIdWithIdNullOk() {
+        //Given
+        Optional<Reclamation> reclamationOpt = Optional.empty();
+
+        //Then
+        Optional<Reclamation> returned = reclamationService.findById(null);
+
+        assertEquals(Optional.empty(), returned);
+        verify(reclamationRepository, times(0)).findById(null);
+    }
+
+
+    @Test
+    public void testAddReclamationOk(){
+        //When
+        when(reclamationRepository.save(reclamation)).thenReturn(reclamation);
+
+        //Then
+        Reclamation returned = reclamationRepository.save(reclamation);
+
+        assertNotNull(returned);
+        assertEquals(reclamation, returned);
+        assertEquals("Gestionnaire", returned.getGestionnaire());
+        verify(reclamationRepository, times(1)).save(reclamation);
+    }
+
+
+    @Test
+    public void testDeleteReclamationByIdOk() {
+        //Then
+        reclamationService.deleteById("XF555");
+
+        verify(reclamationRepository, times(1)).deleteById("XF555");
+    }
+
+
+    @Test
+    public void testUpdateReclamationOk() {
+        //Given
+        Reclamation new_reclamation = new Reclamation("ZZ9999", "Normal", Timestamp.from(Instant.now()), "Gestionnaire 1", "Body normal");
+
+        //When
+        when(reclamationRepository.save(new_reclamation)).thenReturn(new_reclamation);
+
+        //Then
+        Reclamation returned = reclamationService.update("XF555", new_reclamation);
+
+        assertNotNull(returned);
+        assertEquals(new_reclamation, returned);
+        assertEquals("Normal", returned.getPriority());
+        verify(reclamationRepository, times(1)).save(new_reclamation);
+    }
+
 
 
 }
