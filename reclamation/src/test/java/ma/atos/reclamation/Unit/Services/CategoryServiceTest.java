@@ -1,26 +1,16 @@
 package ma.atos.reclamation.Unit.Services;
-
 import ma.atos.reclamation.Models.Category;
-import ma.atos.reclamation.Models.Client;
 import ma.atos.reclamation.Repositories.CategoryRepository;
-import ma.atos.reclamation.Repositories.ClientRepository;
 import ma.atos.reclamation.Services.CategoryServiceImpl;
-import ma.atos.reclamation.Services.ClientService;
-import ma.atos.reclamation.Services.ClientServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import javax.persistence.Id;
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -33,12 +23,16 @@ public class CategoryServiceTest {
     private CategoryRepository categoryRepository;
 
 
-    private Category category;
+    public Category category;
 
 
     @Before
     public void init() {
-        category = new Category(1L, "short", "long");
+        category = new Category(
+                1L,
+                "short",
+                "long"
+        );
     }
 
     @Test
@@ -64,18 +58,20 @@ public class CategoryServiceTest {
     @Test
     public void testFindByIdOk() {
         //Given
-        Optional<Category> categoryOptional = Optional.of(category);
+        Optional<Category> categoryOpt = Optional.of(category);
 
         //When
-        when(categoryRepository.findById(1L)).thenReturn(categoryOptional);
+        when(categoryRepository.findById(1L)).thenReturn(categoryOpt);
 
         //Then
         Optional<Category> returned = categoryService.findById(1L);
 
         assertNotNull(returned);
-        assertEquals("short", returned.get().getLabelLong());
+        assertEquals(category, returned.get());
+        assertEquals("short", returned.get().getLabelShort());
         verify(categoryRepository, times(1)).findById(1L);
     }
+
 
 
     @Test
@@ -103,7 +99,8 @@ public class CategoryServiceTest {
 
         assertNotNull(returned);
         assertEquals(category, returned);
-        assertEquals("1", returned.getId());
+
+        assertEquals("short", returned.getLabelShort());
         verify(categoryRepository, times(1)).save(category);
     }
 
