@@ -4,8 +4,10 @@ package ma.atos.reclamation.Controllers;
 import ma.atos.reclamation.Models.Category;
 import ma.atos.reclamation.Services.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -32,6 +34,16 @@ public class CategoryController {
     @DeleteMapping("/{Id}")
     public void deleteById(@PathVariable int Id) {
         categoryService.deleteById(Id);
+    }
+
+    @GetMapping("/{Id}")
+    public Optional<Category> findById(@PathVariable int Id) {
+        return categoryService.findById(Id);
+    }
+
+    @GetMapping
+    public List<Category> findAll() {
+        return categoryService.findAll();
     }
 
 }
