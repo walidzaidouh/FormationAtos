@@ -11,6 +11,7 @@ import java.util.Optional;
 public class RatingServiceImpl implements RatingService {
     @Autowired
     private RatingRepository ratingRepository;
+
     @Override
     public Rating add(Rating rating) {
         return ratingRepository.save(rating);
