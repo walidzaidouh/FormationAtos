@@ -25,19 +25,19 @@ public class CategoryController {
     }
 
     @PutMapping("/{Id}")
-    public Category update(@PathVariable int Id , @RequestBody Category category) {
+    public Category update(@PathVariable Long Id , @RequestBody Category category) {
 
         return categoryService.update(Id,category);
 
     }
 
     @DeleteMapping("/{Id}")
-    public void deleteById(@PathVariable int Id) {
+    public void deleteById(@PathVariable Long Id) {
         categoryService.deleteById(Id);
     }
 
     @GetMapping("/{Id}")
-    public Optional<Category> findById(@PathVariable int Id) {
+    public Optional<Category> findById(@PathVariable Long Id) {
         return categoryService.findById(Id);
     }
 
