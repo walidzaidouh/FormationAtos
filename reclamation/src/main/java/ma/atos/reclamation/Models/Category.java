@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Category {
     @Id
-    private int Id;
+    private Long Id;
     private String labelShort;
     private String labelLong;
 

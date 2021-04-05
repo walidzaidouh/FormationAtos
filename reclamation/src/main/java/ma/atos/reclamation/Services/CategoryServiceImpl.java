@@ -33,19 +33,17 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteById(int id) {
 
-        categoryRepository.deleteById(id);
+        categoryRepository.deleteById( id);
 
     }
 
+
     @Override
-    public Optional<Category> findById(Integer Id) {
+    public Optional<Category> findById(Long Id) {
         return Optional.empty();
     }
 
-    @Override
-    public Optional<Category> findById(int Id) {
-        return categoryRepository.findById(Id);
-    }
+
 
     @Override
     public List<Category> findAll() {

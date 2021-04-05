@@ -19,6 +19,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -33,6 +34,7 @@ public class CategoryServiceTest {
 
 
     private Category category;
+
 
     @Before
     public void init() {
@@ -58,4 +60,87 @@ public class CategoryServiceTest {
         assertEquals("long", returnedList.get(0).getLabelLong());
         verify(categoryRepository, times(1)).findAll();
     }
+
+    @Test
+    public void testFindByIdOk() {
+        //Given
+        Optional<Category> categoryOptional = Optional.of(category);
+
+        //When
+        when(categoryRepository.findById(1)).thenReturn(categoryOptional);
+
+        //Then
+        Optional<Category> returned = categoryService.findById(1);
+
+        assertNotNull(returned);
+        assertEquals(category, returned.get());
+        assertEquals("1", returned.get().getId());
+        verify(categoryRepository, times(1)).findById(1);
+    }
+
+
+    @Test
+    public void testFindByIdWithIdNullOk() {
+        //Given
+        Optional<Category> categoryOptional = Optional.empty();
+
+        //Then
+        Optional<Category> returned = categoryService.findById(null);
+
+        assertEquals(Optional.empty(), returned);
+        verify(categoryRepository, times(0)).findById(null);
+    }
+
+
+    @Test
+    public void testAddCategoryOk(){
+        //Given
+
+        //When
+        when(categoryRepository.save(category)).thenReturn(category);
+
+        //Then
+        Category returned = categoryRepository.save(category);
+
+        assertNotNull(returned);
+        assertEquals(category, returned);
+        assertEquals("1", returned.getId());
+        verify(categoryRepository, times(1)).save(category);
+    }
+
+
+    @Test
+    public void testDeleteByIdOk() {
+        //Then
+        categoryService.deleteById(1);
+
+        verify(categoryRepository, times(1)).deleteById(1);
+    }
+
+
+    @Test
+    public void testUpdateOk() {
+        //Given
+        Category c = new Category(
+                2,
+                "toto",
+                "fofo"
+
+        );
+
+
+
+        //When
+        when(categoryRepository.save(c)).thenReturn(c);
+
+        //Then
+        Category returned = categoryService.update(2, c );
+
+        assertNotNull(returned);
+        assertEquals(c, returned);
+        assertEquals("fofo", returned.getLabelLong());
+        verify(categoryRepository, times(1)).save(c);
+    }
+
+
 }
