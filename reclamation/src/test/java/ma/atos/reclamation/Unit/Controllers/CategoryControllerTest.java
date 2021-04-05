@@ -1,6 +1,6 @@
 package ma.atos.reclamation.Unit.Controllers;
 
-import ma.atos.reclamation.Services.ReclamationServiceImpl;
+import ma.atos.reclamation.Services.CategoryServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +19,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource
-public class ReclamationControllerTest{
+public class CategoryControllerTest{
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private ReclamationServiceImpl reclamationService;
+    private CategoryServiceImpl categoryService;
     @Test
-    public void testGetReclamations() throws Exception {
-        mockMvc.perform(get("/reclamations"))
+    public void testGetCategories() throws Exception {
+        mockMvc.perform(get("/categories"))
                 .andExpect(status().isOk());
     }
 }
