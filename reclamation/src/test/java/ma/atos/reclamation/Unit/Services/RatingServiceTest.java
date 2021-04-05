@@ -93,5 +93,25 @@ public class RatingServiceTest {
         verify(ratingRepository, times(1)).deleteById(1L);
     }
 
+    @Test
+    public void testUpdateOk() {
+        //Given
+        Rating r = new Rating(
+                2L,
+                "okkk",
+                333D
+        );
+
+        //When
+        when(ratingRepository.save(r)).thenReturn(r);
+
+        //Then
+        Rating returned = ratingService.update(1L, r );
+
+        assertNotNull(returned);
+        assertEquals(r, returned);
+        assertEquals("okkk", returned.getCommentaire());
+        verify(ratingRepository, times(1)).save(r);
+    }
 
 }
