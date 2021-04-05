@@ -67,7 +67,7 @@ public class CategoryServiceTest {
         Optional<Category> returned = categoryService.findById(1L);
 
         assertNotNull(returned);
-        assertEquals(category, returned.get());
+        assertEquals(returned.get(), category);
         assertEquals("short", returned.get().getLabelShort());
         verify(categoryRepository, times(1)).findById(1L);
     }
