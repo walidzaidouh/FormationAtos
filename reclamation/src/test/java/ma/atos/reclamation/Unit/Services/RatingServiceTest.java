@@ -92,4 +92,6 @@ public class RatingServiceTest {
 
         verify(ratingRepository, times(1)).deleteById(1L);
     }
+
+
 }
