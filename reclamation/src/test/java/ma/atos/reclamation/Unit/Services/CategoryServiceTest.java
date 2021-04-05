@@ -73,20 +73,6 @@ public class CategoryServiceTest {
     }
 
 
-
-    @Test
-    public void testFindByIdWithIdNullOk() {
-        //Given
-        Optional<Category> categoryOptional = Optional.empty();
-
-        //Then
-        Optional<Category> returned = categoryService.findById(null);
-
-        assertEquals(Optional.empty(), returned);
-        verify(categoryRepository, times(0)).findById(null);
-    }
-
-
     @Test
     public void testAddCategoryOk(){
         //Given
