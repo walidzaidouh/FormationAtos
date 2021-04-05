@@ -84,4 +84,35 @@ public class ClientServiceTest {
         assertEquals("BE777777", returned.getCin());
         verify(clientRepository, times(1)).save(client);
     }
+    @Test
+    public void testDeleteByIdOk() {
+        //Then
+        clientService.deleteById(client.getThirdPartyNumber());
+
+        verify(clientRepository, times(1)).deleteById(client.getThirdPartyNumber());
+    }
+
+    @Test
+    public void testUpdateOk() {
+        //Given
+        Client c = new Client(
+                2L,
+                "BC5542424",
+                1237874848L,
+                "10 BD Anfa"
+        );
+
+        //When
+        when(clientRepository.save(c)).thenReturn(c);
+
+        //Then
+        Client returned = clientService.update(1L, c );
+
+        assertNotNull(returned);
+        assertEquals(c, returned);
+        assertEquals("BC5542424", returned.getCin());
+        verify(clientRepository, times(1)).save(c);
+    }
+
+
 }
