@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -26,7 +27,6 @@ public class ClientServiceTest {
     private ClientServiceImpl clientService;
     @Mock
     private ClientRepository clientRepository;
-
 
     private Client client;
 
@@ -54,5 +54,19 @@ public class ClientServiceTest {
         verify(clientRepository, times(1)).findAll();
     }
 
+    @Test
+    public void testFindByIdOk() {
+        //Given
+        Optional<Client> clientOpt = Optional.of(client);
 
+        //When
+        when(clientRepository.findById(1L)).thenReturn(clientOpt);
+
+        //Then
+        Optional<Client> returned = clientService.findById(1L);
+
+        assertNotNull(returned);
+        assertEquals("BE777777", returned.get().getCin());
+        verify(clientRepository, times(1)).findById(1L);
+    }
 }
