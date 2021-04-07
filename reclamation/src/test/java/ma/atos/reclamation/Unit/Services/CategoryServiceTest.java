@@ -72,7 +72,6 @@ public class CategoryServiceTest {
         verify(categoryRepository, times(1)).findById(1L);
     }
 
-
     @Test
     public void testAddCategoryOk(){
         //Given
