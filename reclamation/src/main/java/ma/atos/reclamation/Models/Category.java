@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
+public class Category extends AbstractEntity {
     @Id
     private Long Id;
     private String labelShort;

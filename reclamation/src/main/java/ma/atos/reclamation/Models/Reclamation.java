@@ -12,7 +12,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Reclamation {
+public class Reclamation extends AbstractEntity {
     @Id
     private String reference;
     private String priority;

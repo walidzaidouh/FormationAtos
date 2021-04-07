@@ -1,8 +1,6 @@
 package ma.atos.reclamation.Services;
 
 import ma.atos.reclamation.Models.Category;
-
-import ma.atos.reclamation.Models.Client;
 import ma.atos.reclamation.Repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,7 +41,6 @@ public class CategoryServiceImpl implements CategoryService {
     public Optional<Category> findById(Long Id) {
         return categoryRepository.findById(Id);
     }
-
 
 
     @Override
