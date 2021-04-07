@@ -1,7 +1,7 @@
 package ma.atos.reclamation.DTO;
 
 import lombok.Data;
-
+/**/
 
 @Data
 public class RatingDTO {

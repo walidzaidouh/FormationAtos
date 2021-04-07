@@ -15,13 +15,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
+/*@RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-@TestPropertySource
+@TestPropertySource*/
 public class ClientControllerTest{
 
-    @Autowired
+    /*@Autowired
     private MockMvc mockMvc;
 
     @MockBean
@@ -30,5 +30,5 @@ public class ClientControllerTest{
     public void testGetClients() throws Exception {
         mockMvc.perform(get("/clients"))
                 .andExpect(status().isOk());
-    }
+    }*/
 }

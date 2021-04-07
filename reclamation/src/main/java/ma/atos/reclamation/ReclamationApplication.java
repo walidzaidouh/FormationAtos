@@ -1,15 +1,7 @@
 package ma.atos.reclamation;
 
-import ma.atos.reclamation.Models.Client;
-import ma.atos.reclamation.Models.Reclamation;
-import ma.atos.reclamation.Repositories.ClientRepository;
-import ma.atos.reclamation.Repositories.ReclamationRepository;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import java.util.Date;
 
 @SpringBootApplication
 public class ReclamationApplication {

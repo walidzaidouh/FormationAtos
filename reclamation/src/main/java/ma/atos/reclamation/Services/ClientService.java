@@ -6,15 +6,16 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClientService {
-    public abstract Client add(Client client);
 
-    public abstract Client update(long thirdPartyNumber, Client client);
+    public Client add(Client client);
 
-    public abstract void deleteById(long thirdPartyNumber);
+    public  Client update(long thirdPartyNumber, Client client);
 
-    public abstract Optional<Client> findById(Long thirdPartyNumber);
+    public  void deleteById(long thirdPartyNumber);
 
-    public abstract List<Client> findAll();
+    public  Optional<Client> findById(Long thirdPartyNumber);
+
+    public  List<Client> findAll();
 
 
 }
