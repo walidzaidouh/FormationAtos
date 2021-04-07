@@ -9,5 +9,6 @@ public class ReclamationDTO {
     private String reference;
     private String priority;
     private Date date;
+    private String gestionnaire;
     private String body;
 }
