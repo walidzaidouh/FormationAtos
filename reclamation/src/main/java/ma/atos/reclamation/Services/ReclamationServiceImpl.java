@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ReclamationServiceImpl implements ReclamationService{
+public class ReclamationServiceImpl implements ReclamationService {
     @Autowired
     private ReclamationRepository reclamationRepository;
 

@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rating {
+public class Rating extends AbstractEntity {
     @Id
     private Long id;
     private String commentaire;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class RatingServiceImpl implements RatingService {
     @Autowired
@@ -20,7 +21,8 @@ public class RatingServiceImpl implements RatingService {
     @Override
     public Rating update(long id, Rating rating) {
         rating.setId(id);
-        return ratingRepository.save(rating);    }
+        return ratingRepository.save(rating);
+    }
 
     @Override
     public void deleteById(long id) {

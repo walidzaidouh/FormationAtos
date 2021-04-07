@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Client {
+public class Client extends AbstractEntity {
     @Id
     private Long thirdPartyNumber;
     private String cin;

@@ -8,8 +8,12 @@ import java.util.Optional;
 public interface RatingService {
 
     public abstract Rating add(Rating rating);
-    public abstract Rating update(long id , Rating rating);
+
+    public abstract Rating update(long id, Rating rating);
+
     public abstract void deleteById(long id);
+
     public abstract Optional<Rating> findById(Long id);
-    public abstract List<Rating> findAll() ;
+
+    public abstract List<Rating> findAll();
 }
