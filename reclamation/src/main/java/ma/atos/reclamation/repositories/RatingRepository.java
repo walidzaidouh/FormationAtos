@@ -1,6 +1,6 @@
-package ma.atos.reclamation.Repositories;
+package ma.atos.reclamation.repositories;
 
-import ma.atos.reclamation.Models.Rating;
+import ma.atos.reclamation.models.Rating;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RatingRepository extends JpaRepository<Rating, Long> {

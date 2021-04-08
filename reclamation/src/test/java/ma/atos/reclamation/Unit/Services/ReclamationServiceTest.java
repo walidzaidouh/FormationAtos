@@ -1,8 +1,8 @@
 package ma.atos.reclamation.Unit.Services;
 
-import ma.atos.reclamation.Models.Reclamation;
-import ma.atos.reclamation.Repositories.ReclamationRepository;
-import ma.atos.reclamation.Services.ReclamationServiceImpl;
+import ma.atos.reclamation.models.Reclamation;
+import ma.atos.reclamation.repositories.ReclamationRepository;
+import ma.atos.reclamation.services.ReclamationServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

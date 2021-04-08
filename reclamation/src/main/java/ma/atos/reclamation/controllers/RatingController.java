@@ -1,7 +1,7 @@
-package ma.atos.reclamation.Controllers;
+package ma.atos.reclamation.controllers;
 
-import ma.atos.reclamation.Models.Rating;
-import ma.atos.reclamation.Services.RatingService;
+import ma.atos.reclamation.models.Rating;
+import ma.atos.reclamation.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

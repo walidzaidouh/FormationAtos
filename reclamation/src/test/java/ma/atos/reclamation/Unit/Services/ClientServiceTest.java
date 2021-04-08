@@ -1,9 +1,8 @@
 package ma.atos.reclamation.Unit.Services;
 
-import ma.atos.reclamation.Models.Client;
-import ma.atos.reclamation.Repositories.ClientRepository;
-import ma.atos.reclamation.Services.ClientService;
-import ma.atos.reclamation.Services.ClientServiceImpl;
+import ma.atos.reclamation.models.Client;
+import ma.atos.reclamation.repositories.ClientRepository;
+import ma.atos.reclamation.services.ClientServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,8 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

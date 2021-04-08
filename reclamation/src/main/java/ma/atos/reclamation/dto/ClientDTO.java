@@ -1,4 +1,4 @@
-package ma.atos.reclamation.DTO;
+package ma.atos.reclamation.dto;
 
 import lombok.Data;
 
