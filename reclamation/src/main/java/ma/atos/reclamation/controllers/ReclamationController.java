@@ -1,12 +1,12 @@
 package ma.atos.reclamation.controllers;
 
-import ma.atos.reclamation.models.Reclamation;
+import ma.atos.reclamation.converter.ReclamationConverter;
+import ma.atos.reclamation.dto.ReclamationDTO;
 import ma.atos.reclamation.services.ReclamationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/reclamations")
@@ -14,37 +14,40 @@ public class ReclamationController {
     @Autowired
     ReclamationService reclamationService;
 
+    @Autowired
+    ReclamationConverter reclamationConverter;
+
+
     // add reclamation method
     @PostMapping
-    public Reclamation add(@RequestBody Reclamation reclamation) {
-        return reclamationService.add(reclamation);
-
+    public ReclamationDTO add(@RequestBody ReclamationDTO reclamationDTO) {
+        return reclamationConverter.reclamationToReclamationDto(reclamationService.add(reclamationConverter.reclamationDtoToReclamation(reclamationDTO)));
     }
 
     // Update reclamation method
     @PutMapping("/{reference}")
-    public Reclamation update(@PathVariable String reference, @RequestBody Reclamation reclamation) {
-
-        return reclamationService.update(reference, reclamation);
-
+    public ReclamationDTO update(@PathVariable String reference, @RequestBody ReclamationDTO reclamationDTO) {
+        return reclamationConverter.reclamationToReclamationDto(reclamationService.update(reference, reclamationConverter.reclamationDtoToReclamation(reclamationDTO)));
     }
 
     // delete reclamation method
     @DeleteMapping("/{reference}")
     public void deleteById(@PathVariable String reference) {
+
         reclamationService.deleteById(reference);
     }
 
     // Get a single reclamation by id
     @GetMapping("/{reference}")
-    public Optional<Reclamation> findById(@PathVariable String reference) {
-        return reclamationService.findById(reference);
+    public ReclamationDTO findById(@PathVariable String reference) {
+        return reclamationConverter.reclamationToReclamationDto(reclamationService.findById(reference).get());
     }
 
     // Get a list of all reclamation
     @GetMapping
-    public List<Reclamation> findAll() {
-        return reclamationService.findAll();
+    public List<ReclamationDTO> findAll() {
+
+        return reclamationConverter.ReclamationToReclamationDto(reclamationService.findAll());
     }
 
 
