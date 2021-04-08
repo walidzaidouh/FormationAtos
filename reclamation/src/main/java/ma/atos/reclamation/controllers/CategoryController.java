@@ -16,11 +16,9 @@ import java.util.List;
 public class CategoryController {
 
     @Autowired
-
     private CategoryService categoryService;
 
     @Autowired
-
     private CategoryConverter categoryConverter;
 
     @PostMapping
