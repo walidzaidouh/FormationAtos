@@ -1,7 +1,7 @@
 package ma.atos.reclamation.converter;
 
-import ma.atos.reclamation.DTO.ClientDTO;
-import ma.atos.reclamation.Models.Client;
+import ma.atos.reclamation.dto.ClientDTO;
+import ma.atos.reclamation.models.Client;
 
 public class ClientConverter {
 
