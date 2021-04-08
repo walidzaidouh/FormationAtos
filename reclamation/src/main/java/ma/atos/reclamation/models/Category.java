@@ -1,4 +1,4 @@
-package ma.atos.reclamation.Models;
+package ma.atos.reclamation.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,11 +11,11 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rating extends AbstractEntity {
+public class Category extends AbstractEntity {
     @Id
-    private Long id;
-    private String commentaire;
-    private Double notes;
+    private Long Id;
+    private String labelShort;
+    private String labelLong;
 
 
 }

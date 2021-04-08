@@ -1,7 +1,7 @@
 package ma.atos.reclamation.Unit.Services;
-import ma.atos.reclamation.Models.Category;
-import ma.atos.reclamation.Repositories.CategoryRepository;
-import ma.atos.reclamation.Services.CategoryServiceImpl;
+import ma.atos.reclamation.models.Category;
+import ma.atos.reclamation.repositories.CategoryRepository;
+import ma.atos.reclamation.services.CategoryServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

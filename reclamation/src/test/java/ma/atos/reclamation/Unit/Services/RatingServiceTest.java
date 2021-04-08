@@ -1,8 +1,8 @@
 package ma.atos.reclamation.Unit.Services;
 
-import ma.atos.reclamation.Models.Rating;
-import ma.atos.reclamation.Repositories.RatingRepository;
-import ma.atos.reclamation.Services.RatingServiceImpl;
+import ma.atos.reclamation.models.Rating;
+import ma.atos.reclamation.repositories.RatingRepository;
+import ma.atos.reclamation.services.RatingServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

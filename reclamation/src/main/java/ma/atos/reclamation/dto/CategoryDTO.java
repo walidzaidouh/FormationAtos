@@ -1,8 +1,6 @@
-package ma.atos.reclamation.DTO;
+package ma.atos.reclamation.dto;
 
 import lombok.Data;
-
-import javax.persistence.Id;
 
 @Data
 public class CategoryDTO {
