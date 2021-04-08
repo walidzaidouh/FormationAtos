@@ -1,49 +1,61 @@
 package ma.atos.reclamation.controllers;
 
 
-import ma.atos.reclamation.models.Category;
-import ma.atos.reclamation.services.CategoryServiceImpl;
+import ma.atos.reclamation.converter.CategoryConverter;
+import ma.atos.reclamation.dto.CategoryDTO;
+import ma.atos.reclamation.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
 @RequestMapping("/categories")
 
 public class CategoryController {
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+
     @Autowired
-    private CategoryServiceImpl categoryService;
+    private CategoryService categoryService;
+
+    @Autowired
+    private CategoryConverter categoryConverter;
 
     @PostMapping
-    public Category add(@RequestBody Category category) {
-        return categoryService.add(category);
+
+    public CategoryDTO add(@RequestBody CategoryDTO categoryDto) {
+
+        return categoryConverter.FromCategoryToCategoryDto(categoryService.add(categoryConverter.FromCategoryDtoToCategory(categoryDto)));
 
     }
 
     @PutMapping("/{Id}")
-    public Category update(@PathVariable Long Id, @RequestBody Category category) {
 
-        return categoryService.update(Id, category);
+    public CategoryDTO update(@PathVariable long Id, @RequestBody CategoryDTO categoryDTO) {
+
+        return categoryConverter.FromCategoryToCategoryDto(categoryService.update(Id,categoryConverter.FromCategoryDtoToCategory(categoryDTO)));
 
     }
 
     @DeleteMapping("/{Id}")
-    public void deleteById(@PathVariable Long Id) {
+
+    public void deleteById(@PathVariable long Id) {
         categoryService.deleteById(Id);
     }
 
     @GetMapping("/{Id}")
-    public Optional<Category> findById(@PathVariable Long Id) {
-        return categoryService.findById(Id);
+
+    public CategoryDTO findById(@PathVariable Long Id) {
+
+        return categoryConverter.FromCategoryToCategoryDto(categoryService.findById(Id).get());
+
     }
 
     @GetMapping
-    public List<Category> findAll() {
-        return categoryService.findAll();
-    }
 
+    public List<CategoryDTO> findAll() {
+
+        return categoryConverter.FromListCategoriesToListCategoriesDto(categoryService.findAll());
+
+    }
 }
