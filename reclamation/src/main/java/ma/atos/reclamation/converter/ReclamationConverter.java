@@ -11,7 +11,6 @@ public class ReclamationConverter {
 
     public ReclamationDTO reclamationToReclamationDto(Reclamation reclamation) {
         ModelMapper mapper = new ModelMapper();
-
         return mapper.map(reclamation, ReclamationDTO.class);
     }
 
