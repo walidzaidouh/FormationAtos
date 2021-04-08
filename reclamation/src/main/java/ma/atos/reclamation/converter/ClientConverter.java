@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class ClientConverter{
 
     public ClientDTO ClientToClientDto(Client client){
