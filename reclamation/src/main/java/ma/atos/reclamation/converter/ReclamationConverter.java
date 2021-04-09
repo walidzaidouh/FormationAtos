@@ -3,10 +3,13 @@ package ma.atos.reclamation.converter;
 import ma.atos.reclamation.dto.ReclamationDTO;
 import ma.atos.reclamation.models.Reclamation;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
+
 import java.util.stream.Collectors;
 
 import java.util.List;
 
+@Component
 public class ReclamationConverter {
 
     public ReclamationDTO reclamationToReclamationDto(Reclamation reclamation) {

@@ -1,15 +1,12 @@
 package ma.atos.reclamation.controllers;
 
 import ma.atos.reclamation.converter.RatingConverter;
-import ma.atos.reclamation.dto.ClientDTO;
 import ma.atos.reclamation.dto.RatingDTO;
-import ma.atos.reclamation.models.Rating;
 import ma.atos.reclamation.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/ratings")
@@ -22,9 +19,9 @@ public class RatingController {
 
     @PostMapping
 
-        public RatingDTO add(@RequestBody RatingDTO ratingDto) {
-            return ratingConverter.ratingToRatingDto(ratingService.add(ratingConverter.ratingDtoToRating(ratingDto)));
-        }
+    public RatingDTO add(@RequestBody RatingDTO ratingDto) {
+        return ratingConverter.ratingToRatingDto(ratingService.add(ratingConverter.ratingDtoToRating(ratingDto)));
+    }
 
 
     @PutMapping("/{id}")

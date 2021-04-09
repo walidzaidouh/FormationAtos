@@ -1,15 +1,19 @@
 package ma.atos.reclamation.converter;
 
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import ma.atos.reclamation.dto.RatingDTO;
 import ma.atos.reclamation.dto.ReclamationDTO;
 import ma.atos.reclamation.models.Rating;
 import ma.atos.reclamation.models.Reclamation;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class RatingConverter {
 
         public RatingDTO ratingToRatingDto(Rating rating) {
