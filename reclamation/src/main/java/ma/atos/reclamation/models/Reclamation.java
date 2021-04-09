@@ -19,5 +19,4 @@ public class Reclamation extends AbstractEntity {
     private Date date;
     private String gestionnaire;
     private String body;
-
 }
