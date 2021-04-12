@@ -11,24 +11,22 @@ import java.util.stream.Collectors;
 @Component
 public class ClientConverter{
 
-    public ClientDTO FromClientToClientDto(Client client){
+    public ClientDTO fromClientToClientDto(Client client){
         ModelMapper mapper =new ModelMapper();
         return mapper.map(client, ClientDTO.class);
     }
 
-    public Client FromClientDtoToClient(ClientDTO clientDTO){
+    public Client fromClientDtoToClient(ClientDTO clientDTO){
         ModelMapper mapper =new ModelMapper();
         return mapper.map(clientDTO, Client.class);
     }
 
-    public List<ClientDTO> FromListClientsToListClientsDto(List<Client> clients){
-        ModelMapper mapper =new ModelMapper();
-        return clients.stream().map(this::FromClientToClientDto).collect(Collectors.toList());
+    public List<ClientDTO> fromListClientsToListClientsDto(List<Client> clients){
+        return clients.stream().map(this::fromClientToClientDto).collect(Collectors.toList());
     }
 
-    public List<Client> FromListClientsDtoToListClients(List<ClientDTO> clientsDto){
-        ModelMapper mapper =new ModelMapper();
-        return clientsDto.stream().map(this::FromClientDtoToClient).collect(Collectors.toList());
+    public List<Client> fromListClientsDtoToListClients(List<ClientDTO> clientsDto){
+        return clientsDto.stream().map(this::fromClientDtoToClient).collect(Collectors.toList());
 
     }
 

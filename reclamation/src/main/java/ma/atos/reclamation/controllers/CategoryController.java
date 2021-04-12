@@ -40,8 +40,8 @@ public class CategoryController {
     @PostMapping
     public CategoryDTO add(@ApiParam(value = "Catégorie à ajouter", required = true)
                                @Valid @RequestBody CategoryDTO categoryDto) {
-        return categoryConverter.FromCategoryToCategoryDto(categoryService.add(
-                categoryConverter.FromCategoryDtoToCategory(categoryDto)));
+        return categoryConverter.fromCategoryToCategoryDto(categoryService.add(
+                categoryConverter.fromCategoryDtoToCategory(categoryDto)));
     }
 
     @ApiOperation(value = "Modifier une catégorie par son id", notes = "", nickname = "updateById")
@@ -56,11 +56,11 @@ public class CategoryController {
 
     })
     @PutMapping("/{Id}")
-    public CategoryDTO update(@ApiParam(value = "Catégorie à modifier", required = true) @PathVariable long Id,
+    public CategoryDTO update(@ApiParam(value = "Catégorie à modifier", required = true) @PathVariable long id,
                               @ApiParam(value = "Catégorie à modifier", required = true)
                               @Valid @RequestBody CategoryDTO categoryDTO) {
-        return categoryConverter.FromCategoryToCategoryDto(categoryService.update
-                (Id,categoryConverter.FromCategoryDtoToCategory(categoryDTO)));
+        return categoryConverter.fromCategoryToCategoryDto(categoryService.update
+                (id,categoryConverter.fromCategoryDtoToCategory(categoryDTO)));
     }
 
     @ApiOperation(value = "Supprimer une catégorie par son id", notes = "", nickname = "deleteById")
@@ -75,8 +75,8 @@ public class CategoryController {
 
     })
     @DeleteMapping("/{Id}")
-    public void deleteById(@ApiParam(value = "Catégorie à supprimer", required = true)@PathVariable long Id) {
-        categoryService.deleteById(Id);
+    public void deleteById(@ApiParam(value = "Catégorie à supprimer", required = true)@PathVariable long id) {
+        categoryService.deleteById(id);
     }
 
     @ApiOperation(value = "Retourner une catégorie par son id", notes = "", nickname = "findById")
@@ -90,9 +90,9 @@ public class CategoryController {
             @ApiResponse(code = 500, message = "Erreur interne du serveur")
 
     })
-    @GetMapping("/{Id}")
-    public CategoryDTO findById(@ApiParam(value = "Catégorie à trouver", required = true)@PathVariable Long Id) {
-        return categoryConverter.FromCategoryToCategoryDto(categoryService.findById(Id).get());
+    @GetMapping("/{id}")
+    public CategoryDTO findById(@ApiParam(value = "Catégorie à trouver", required = true)@PathVariable Long id) {
+        return categoryConverter.fromCategoryToCategoryDto(categoryService.findById(id).get());
     }
 
     @ApiOperation(value = "Retourner la liste des catégories", notes = "", nickname = "findAll")
@@ -109,6 +109,6 @@ public class CategoryController {
 
     @GetMapping
     public List<CategoryDTO> findAll() {
-        return categoryConverter.FromListCategoriesToListCategoriesDto(categoryService.findAll());
+        return categoryConverter.fromListCategoriesToListCategoriesDto(categoryService.findAll());
     }
 }

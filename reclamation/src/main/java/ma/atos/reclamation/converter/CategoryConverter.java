@@ -11,24 +11,22 @@ import java.util.stream.Collectors;
 @Component
 public class CategoryConverter{
 
-    public CategoryDTO FromCategoryToCategoryDto(Category category){
+    public CategoryDTO fromCategoryToCategoryDto(Category category){
         ModelMapper mapper =new ModelMapper();
         return mapper.map(category, CategoryDTO.class);
     }
 
-    public Category FromCategoryDtoToCategory(CategoryDTO categoryDTO){
+    public Category fromCategoryDtoToCategory(CategoryDTO categoryDTO){
         ModelMapper mapper =new ModelMapper();
         return mapper.map(categoryDTO, Category.class);
     }
 
-    public List<CategoryDTO> FromListCategoriesToListCategoriesDto(List<Category> categories){
-        ModelMapper mapper =new ModelMapper();
-        return categories.stream().map(this::FromCategoryToCategoryDto).collect(Collectors.toList());
+    public List<CategoryDTO> fromListCategoriesToListCategoriesDto(List<Category> categories){
+        return categories.stream().map(this::fromCategoryToCategoryDto).collect(Collectors.toList());
     }
 
-    public List<Category> FromListCategoriesToListCategoryDto(List<CategoryDTO> categoryDto){
-        ModelMapper mapper =new ModelMapper();
-        return categoryDto.stream().map(this::FromCategoryDtoToCategory).collect(Collectors.toList());
+    public List<Category> fromListCategoriesToListCategoryDto(List<CategoryDTO> categoryDto){
+        return categoryDto.stream().map(this::fromCategoryDtoToCategory).collect(Collectors.toList());
 
     }
 

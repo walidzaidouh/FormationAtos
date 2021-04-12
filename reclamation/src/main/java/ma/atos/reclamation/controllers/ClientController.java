@@ -36,7 +36,7 @@ public class ClientController {
     @PostMapping
     public ClientDTO add(@ApiParam(value = "Client à ajouter", required = true) @Valid @RequestBody ClientDTO clientDto) {
 
-        return clientConverter.FromClientToClientDto(clientService.add(clientConverter.FromClientDtoToClient(clientDto)));
+        return clientConverter.fromClientToClientDto(clientService.add(clientConverter.fromClientDtoToClient(clientDto)));
 
     }
 
@@ -56,7 +56,7 @@ public class ClientController {
     public ClientDTO updateById(@ApiParam(value = "Numéro de tiers du client", required = true, defaultValue = "") @PathVariable long thirdPartyNumber,
                                 @ApiParam(value = "Objet avec les données de modifications", required = true) @Valid @RequestBody ClientDTO clientDTO) {
 
-        return clientConverter.FromClientToClientDto(clientService.update(thirdPartyNumber, clientConverter.FromClientDtoToClient(clientDTO)));
+        return clientConverter.fromClientToClientDto(clientService.update(thirdPartyNumber, clientConverter.fromClientDtoToClient(clientDTO)));
 
     }
 
@@ -91,7 +91,7 @@ public class ClientController {
 
     @GetMapping("/{thirdPartyNumber}")
     public ClientDTO findById(@ApiParam(value = "Numéro de tiers du client", required = true, defaultValue = "") @PathVariable Long thirdPartyNumber) {
-        return clientConverter.FromClientToClientDto(clientService.findById(thirdPartyNumber).get());
+        return clientConverter.fromClientToClientDto(clientService.findById(thirdPartyNumber).get());
     }
 
     @ApiOperation(value = "Retourner la liste des clients", notes = "", nickname = "findAll")
@@ -108,7 +108,7 @@ public class ClientController {
 
     @GetMapping
     public List<ClientDTO> findAll() {
-        return clientConverter.FromListClientsToListClientsDto(clientService.findAll());
+        return clientConverter.fromListClientsToListClientsDto(clientService.findAll());
     }
 
 

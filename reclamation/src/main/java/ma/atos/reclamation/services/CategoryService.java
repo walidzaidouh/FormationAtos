@@ -15,7 +15,7 @@ public interface CategoryService {
     public abstract void deleteById(Long id);
 
 
-    public abstract Optional<Category> findById(Long Id);
+    public abstract Optional<Category> findById(Long id);
 
     public abstract List<Category> findAll();
 
