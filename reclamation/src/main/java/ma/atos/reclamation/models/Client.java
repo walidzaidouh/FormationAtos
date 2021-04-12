@@ -26,5 +26,4 @@ public class Client extends AbstractEntity {
 
     @NotNull(message = "PPM is required")
     private String ppm;
-
 }

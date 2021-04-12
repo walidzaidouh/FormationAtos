@@ -91,7 +91,7 @@ public class ClientController {
 
     @GetMapping("/{thirdPartyNumber}")
     public ClientDTO findById(@ApiParam(value = "Customer's third party number", required = true, defaultValue = "") @PathVariable Long thirdPartyNumber) {
-        return clientConverter.fromClientToClientDto(clientService.findById(thirdPartyNumber).get());
+        return clientConverter.fromClientToClientDto(clientService.findById(thirdPartyNumber).orElse(null));
     }
 
     @ApiOperation(value = "Return the client list", notes = "", nickname = "findAll")

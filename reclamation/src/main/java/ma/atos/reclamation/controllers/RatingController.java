@@ -89,7 +89,7 @@ public class RatingController {
 
     @GetMapping("/{id}")
     public RatingDTO findById(@ApiParam(value = "Id rating", required = true, defaultValue = "")@PathVariable Long id) {
-        return ratingConverter.ratingToRatingDto(ratingService.findById(id).get());
+        return ratingConverter.ratingToRatingDto(ratingService.findById(id).orElse(null));
     }
 
     @ApiOperation(value = "Return the list of ratings", notes = "", nickname = "ReturnListRatings")

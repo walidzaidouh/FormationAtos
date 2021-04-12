@@ -92,7 +92,7 @@ public class ReclamationController {
     @GetMapping("/{reference}")
     public ReclamationDTO findById(@ApiParam(value = "Reference of the complaint", required = true, defaultValue = "")
                                        @PathVariable String reference) {
-        return reclamationConverter.reclamationToReclamationDto(reclamationService.findById(reference).get());
+        return reclamationConverter.reclamationToReclamationDto(reclamationService.findById(reference).orElse(null));
     }
 
     @ApiOperation(value = "Return the list of complaints", notes = "", nickname = "findAll")
@@ -111,7 +111,7 @@ public class ReclamationController {
     @GetMapping
     public List<ReclamationDTO> findAll() {
 
-        return reclamationConverter.ReclamationToReclamationDto(reclamationService.findAll());
+        return reclamationConverter.listReclamationToReclamationDto(reclamationService.findAll());
     }
 
 
