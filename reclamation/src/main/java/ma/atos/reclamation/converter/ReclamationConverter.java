@@ -5,9 +5,8 @@ import ma.atos.reclamation.models.Reclamation;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-import java.util.stream.Collectors;
-
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class ReclamationConverter {
@@ -17,16 +16,17 @@ public class ReclamationConverter {
         return mapper.map(reclamation, ReclamationDTO.class);
     }
 
-    public List<ReclamationDTO> ReclamationToReclamationDto(List<Reclamation> reclamation) {
-        return	reclamation.stream().map(this::reclamationToReclamationDto).collect(Collectors.toList());
+    public List<ReclamationDTO> listReclamationToReclamationDto(List<Reclamation> reclamation) {
+        return reclamation.stream().map(this::reclamationToReclamationDto).collect(Collectors.toList());
     }
 
     public Reclamation reclamationDtoToReclamation(ReclamationDTO reclamationDTO) {
         ModelMapper mapper = new ModelMapper();
         return mapper.map(reclamationDTO, Reclamation.class);
     }
-    public List<Reclamation> ReclamationDtoToReclamation(List<ReclamationDTO> reclamationDTO) {
-        return	reclamationDTO.stream().map(this::reclamationDtoToReclamation).collect(Collectors.toList());
+
+    public List<Reclamation> listReclamationDtoToReclamation(List<ReclamationDTO> reclamationDTO) {
+        return reclamationDTO.stream().map(this::reclamationDtoToReclamation).collect(Collectors.toList());
     }
 
 }

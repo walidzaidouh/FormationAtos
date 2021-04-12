@@ -6,16 +6,24 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Client extends AbstractEntity {
-    @Id
-    private Long thirdPartyNumber;
-    private String cin;
-    private Long accountNumber;
-    private String ppm;
 
+    @Id
+    @NotNull(message = "TDN is required")
+    private Long thirdPartyNumber;
+
+    @NotNull(message = "CIN is required")
+    private String cin;
+
+    @NotNull(message = "AN is required")
+    private Long accountNumber;
+
+    @NotNull(message = "PPM is required")
+    private String ppm;
 }

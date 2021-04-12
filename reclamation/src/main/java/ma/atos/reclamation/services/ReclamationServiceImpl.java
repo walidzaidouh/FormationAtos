@@ -19,18 +19,18 @@ public class ReclamationServiceImpl implements ReclamationService {
     }
 
     @Override
-    public Reclamation update(String reference, Reclamation _reclamation) {
+    public Reclamation update(String reference, Reclamation reclamation) {
         return reclamationRepository.findById(reference)
-                .map(reclamation -> {
-                    reclamation.setPriority(_reclamation.getPriority());
-                    reclamation.setDate(_reclamation.getDate());
-                    reclamation.setGestionnaire(_reclamation.getGestionnaire());
-                    reclamation.setBody(_reclamation.getBody());
-                    return reclamationRepository.save(reclamation);
+                .map(reclamationTemp -> {
+                    reclamationTemp.setPriority(reclamationTemp.getPriority());
+                    reclamationTemp.setDate(reclamationTemp.getDate());
+                    reclamationTemp.setGestionnaire(reclamationTemp.getGestionnaire());
+                    reclamationTemp.setBody(reclamationTemp.getBody());
+                    return reclamationRepository.save(reclamationTemp);
                 })
                 .orElseGet(() -> {
-                    _reclamation.setReference(reference);
-                    return reclamationRepository.save(_reclamation);
+                    reclamation.setReference(reference);
+                    return reclamationRepository.save(reclamation);
                 });
     }
 
@@ -46,6 +46,6 @@ public class ReclamationServiceImpl implements ReclamationService {
 
     @Override
     public List<Reclamation> findAll() {
-        return (List<Reclamation>) reclamationRepository.findAll();
+        return reclamationRepository.findAll();
     }
 }

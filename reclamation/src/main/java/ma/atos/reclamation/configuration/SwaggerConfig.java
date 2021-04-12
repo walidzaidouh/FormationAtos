@@ -19,14 +19,14 @@ public class SwaggerConfig {
 
     @Bean
     public Docket postsApi() {
-        return new Docket(DocumentationType.SWAGGER_2).groupName("public-api")
+        return new Docket(DocumentationType.SWAGGER_2).groupName("reclamations-api")
                 .apiInfo(apiInfo()).select().build();
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("DROUVI API")
-                .description("JavaInUse API reference for developers")
-                .termsOfServiceUrl("http://javainuse.com").license("DROUVI APP")
+        return new ApiInfoBuilder().title("RECLAMATIONS API")
+                .description("Management of complaints and bank branches")
+                .termsOfServiceUrl("http://javainuse.com").license("RECLAMATIONS APP")
                 .licenseUrl("apimanagementAtos@gmail.com").version("1.0").build();
 
     }

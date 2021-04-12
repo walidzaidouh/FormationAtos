@@ -29,11 +29,13 @@ public class ReclamationServiceTest {
     private Reclamation reclamation;
 
     @Before
+    // a test reclamation object
     public void init() {
         reclamation = new Reclamation("XF555", "Urgent", Timestamp.from(Instant.now()), "Gestionnaire", "Body");
     }
 
     @Test
+    // test to find all reclamations
     public void testFindAllReclamationOk() {
         //Given
         List<Reclamation> list = new ArrayList<>();

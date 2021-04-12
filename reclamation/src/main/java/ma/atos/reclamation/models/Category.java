@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Category extends AbstractEntity {
     @Id
-    private Long Id;
+    private Long id;
     private String labelShort;
     private String labelLong;
 
