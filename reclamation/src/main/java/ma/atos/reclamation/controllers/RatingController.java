@@ -23,84 +23,84 @@ public class RatingController {
 
 
 
-    @ApiOperation(value = "Ajouter un rating", notes = "", nickname = "AjouterRating")
+    @ApiOperation(value = "Add a rating", notes = "", nickname = "AddRating")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 201, message = "Rating ajouté", response = RatingDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 201, message = "Rating added", response = RatingDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
     @PostMapping
-    public RatingDTO add(@ApiParam(value = "Rating à ajouter", required = true) @Valid @RequestBody RatingDTO ratingDto) {
+    public RatingDTO add(@ApiParam(value = "Rating to add", required = true) @Valid @RequestBody RatingDTO ratingDto) {
         return ratingConverter.ratingToRatingDto(ratingService.add(ratingConverter.ratingDtoToRating(ratingDto)));
     }
 
-    @ApiOperation(value = "Modifier un rating", notes = "", nickname = "ModifierRating")
+    @ApiOperation(value = "Change a rating", notes = "", nickname = "ChangeRating")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Rating modifié", response = RatingDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Rating changed", response = RatingDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 
     @PutMapping("/{id}")
-    public RatingDTO update(@ApiParam(value = "Id du client", required = true, defaultValue = "")@PathVariable long id,
-                            @ApiParam(value = "Objet avec les données de modifications", required = true) @Valid @RequestBody RatingDTO ratingDTO) {
+    public RatingDTO update(@ApiParam(value = "Rating id", required = true, defaultValue = "")@PathVariable long id,
+                            @ApiParam(value = "Object with modification data", required = true) @Valid @RequestBody RatingDTO ratingDTO) {
         return ratingConverter.ratingToRatingDto(ratingService.update(id, ratingConverter.ratingDtoToRating(ratingDTO)));
 
     }
 
-    @ApiOperation(value = "Supprimer un rating", notes = "", nickname = "SupprimerRating")
+    @ApiOperation(value = "Delete a rating", notes = "", nickname = "DeleteRating")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Rating supprimé", response = RatingDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Rating deleted", response = RatingDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 
     @DeleteMapping("/{id}")
-    public void deleteById(@ApiParam(value = "Id du client", required = true, defaultValue = "")@PathVariable long id) {
+    public void deleteById(@ApiParam(value = "Id rating", required = true, defaultValue = "")@PathVariable long id) {
         ratingService.deleteById(id);
     }
 
-    @ApiOperation(value = "Retourner un rating par son id", notes = "", nickname = "RetournerRating")
+    @ApiOperation(value = "Return a rating by its id", notes = "", nickname = "ReturnRating")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Rating trouvé", response = RatingDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Rating find", response = RatingDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 
     @GetMapping("/{id}")
-    public RatingDTO findById(@ApiParam(value = "Id du client", required = true, defaultValue = "")@PathVariable Long id) {
+    public RatingDTO findById(@ApiParam(value = "Id rating", required = true, defaultValue = "")@PathVariable Long id) {
         return ratingConverter.ratingToRatingDto(ratingService.findById(id).get());
     }
 
-    @ApiOperation(value = "Retourner la liste des ratings", notes = "", nickname = "RetournerListeRatings")
+    @ApiOperation(value = "Return the list of ratings", notes = "", nickname = "ReturnListRatings")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Ratings trouvé", response = RatingDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Ratings finds", response = RatingDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
     @GetMapping

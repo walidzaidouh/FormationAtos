@@ -8,10 +8,10 @@ import javax.validation.constraints.NotNull;
 @Validated
 @Data
 public class CategoryDTO {
-    @NotNull(message = "Id est obligatoire")
+    @NotNull(message = "Id is required")
     private Long id;
-    @NotNull(message = "labelShort est obligatoire")
+    @NotNull(message = "labelShort is required")
     private String labelShort;
-    @NotNull(message = "labelLong est obligatoire")
+    @NotNull(message = "labelLong is required")
     private String labelLong;
 }

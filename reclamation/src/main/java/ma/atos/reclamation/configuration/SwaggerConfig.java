@@ -25,7 +25,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("RECLAMATIONS API")
-                .description("Gestion des réclamations et des agences bancaires")
+                .description("Management of complaints and bank branches")
                 .termsOfServiceUrl("http://javainuse.com").license("RECLAMATIONS APP")
                 .licenseUrl("apimanagementAtos@gmail.com").version("1.0").build();
 

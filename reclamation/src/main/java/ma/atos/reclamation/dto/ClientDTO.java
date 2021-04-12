@@ -10,13 +10,13 @@ import javax.validation.constraints.Size;
 @Data
 public class ClientDTO {
 
-    @NotNull(message = "ThirdPartyNumber est obligatoire")
+    @NotNull(message = "ThirdPartyNumber is required")
     private Long thirdPartyNumber;
 
-    @NotBlank(message = "Cin est obligatoire")
-    @Size(min = 3, max = 20, message = "Taille cin est entre 10 et 20")
+    @NotBlank(message = "Cin is required")
+    @Size(min = 3, max = 20, message = "Cin size is between 10 and 20")
     private String cin;
-    @NotNull(message = "AccountNumber est obligatoire")
+    @NotNull(message = "AccountNumber is required")
     private Long accountNumber;
     @Size(max = 30)
     private String ppm;

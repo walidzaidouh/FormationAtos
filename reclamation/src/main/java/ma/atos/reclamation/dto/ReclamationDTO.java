@@ -8,14 +8,14 @@ import java.util.Date;
 @Validated
 @Data
 public class ReclamationDTO {
-    @NotNull(message = "reference est obligatoire")
+    @NotNull(message = "Reference Note is required")
     private String reference;
-    @NotNull(message = "priority est obligatoire")
+    @NotNull(message = "Priority Note is required")
     private String priority;
-    @NotNull(message = "date est obligatoire")
+    @NotNull(message = "Date Note is required")
     private Date date;
-    @NotNull(message = "gestionnaire est obligatoire")
+    @NotNull(message = "Manager Note is required")
     private String gestionnaire;
-    @NotNull(message = "body est obligatoire")
+    @NotNull(message = "Body is required")
     private String body;
 }

@@ -25,85 +25,85 @@ public class CategoryController {
     private CategoryConverter categoryConverter;
 
 
-    @ApiOperation(value = "Ajouter une catégorie", notes = "", nickname = "AjouterCatégorie")
+    @ApiOperation(value = "Add a category", notes = "", nickname = "Addcategory")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 201, message = "Catégorie ajoutée", response = CategoryDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 201, message = "Category added", response = CategoryDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 
     @PostMapping
-    public CategoryDTO add(@ApiParam(value = "Catégorie à ajouter", required = true)
+    public CategoryDTO add(@ApiParam(value = "Category to add", required = true)
                                @Valid @RequestBody CategoryDTO categoryDto) {
         return categoryConverter.fromCategoryToCategoryDto(categoryService.add(
                 categoryConverter.fromCategoryDtoToCategory(categoryDto)));
     }
 
-    @ApiOperation(value = "Modifier une catégorie par son id", notes = "", nickname = "updateById")
+    @ApiOperation(value = "Change a category by its id", notes = "", nickname = "updateById")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Catégorie Modifié", response = CategoryDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Category Modified", response = CategoryDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
     @PutMapping("/{Id}")
-    public CategoryDTO update(@ApiParam(value = "Catégorie à modifier", required = true) @PathVariable long id,
-                              @ApiParam(value = "Catégorie à modifier", required = true)
+    public CategoryDTO update(@ApiParam(value = "Category to change", required = true) @PathVariable long Id,
+                              @ApiParam(value = "Category to change", required = true)
                               @Valid @RequestBody CategoryDTO categoryDTO) {
         return categoryConverter.fromCategoryToCategoryDto(categoryService.update
-                (id,categoryConverter.fromCategoryDtoToCategory(categoryDTO)));
+                (Id,categoryConverter.fromCategoryDtoToCategory(categoryDTO)));
     }
 
-    @ApiOperation(value = "Supprimer une catégorie par son id", notes = "", nickname = "deleteById")
+    @ApiOperation(value = "Delete a category by its id", notes = "", nickname = "deleteById")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Catégorie supprimé", response = CategoryDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Category deleted", response = CategoryDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
     @DeleteMapping("/{Id}")
-    public void deleteById(@ApiParam(value = "Catégorie à supprimer", required = true)@PathVariable long id) {
-        categoryService.deleteById(id);
+    public void deleteById(@ApiParam(value = "Category to delete", required = true)@PathVariable long Id) {
+        categoryService.deleteById(Id);
     }
 
-    @ApiOperation(value = "Retourner une catégorie par son id", notes = "", nickname = "findById")
+    @ApiOperation(value = "Return a category by its id", notes = "", nickname = "findById")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Catégorie trouvé", response = CategoryDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Category found", response = CategoryDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
-    @GetMapping("/{id}")
-    public CategoryDTO findById(@ApiParam(value = "Catégorie à trouver", required = true)@PathVariable Long id) {
-        return categoryConverter.fromCategoryToCategoryDto(categoryService.findById(id).get());
+    @GetMapping("/{Id}")
+    public CategoryDTO findById(@ApiParam(value = "Category to find", required = true)@PathVariable Long Id) {
+        return categoryConverter.fromCategoryToCategoryDto(categoryService.findById(Id).get());
     }
 
-    @ApiOperation(value = "Retourner la liste des catégories", notes = "", nickname = "findAll")
+    @ApiOperation(value = "Return the list of categories", notes = "", nickname = "findAll")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Liste des catégories trouvées", response = CategoryDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "List of categories found", response = CategoryDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 

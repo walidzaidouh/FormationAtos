@@ -24,85 +24,85 @@ public class ClientController {
     @ApiOperation(value = "Ajouter un client", notes = "", nickname = "AjouterClient")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 201, message = "Client ajouté", response = ClientDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 201, message = "Client added", response = ClientDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 
     @PostMapping
-    public ClientDTO add(@ApiParam(value = "Client à ajouter", required = true) @Valid @RequestBody ClientDTO clientDto) {
+    public ClientDTO add(@ApiParam(value = "Client to added", required = true) @Valid @RequestBody ClientDTO clientDto) {
 
         return clientConverter.fromClientToClientDto(clientService.add(clientConverter.fromClientDtoToClient(clientDto)));
 
     }
 
-    @ApiOperation(value = "Modifier un client par son ThirdPartyNumber", notes = "", nickname = "updateById")
+    @ApiOperation(value = "Modify a customer by his ThirdPartyNumber", notes = "", nickname = "updateById")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Client Modifié", response = ClientDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Client Modified", response = ClientDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 
     @PutMapping("/{thirdPartyNumber}")
-    public ClientDTO updateById(@ApiParam(value = "Numéro de tiers du client", required = true, defaultValue = "") @PathVariable long thirdPartyNumber,
-                                @ApiParam(value = "Objet avec les données de modifications", required = true) @Valid @RequestBody ClientDTO clientDTO) {
+    public ClientDTO updateById(@ApiParam(value = "Customer's third party number", required = true, defaultValue = "") @PathVariable long thirdPartyNumber,
+                                @ApiParam(value = "Object with modification data", required = true) @Valid @RequestBody ClientDTO clientDTO) {
 
         return clientConverter.fromClientToClientDto(clientService.update(thirdPartyNumber, clientConverter.fromClientDtoToClient(clientDTO)));
 
     }
 
-    @ApiOperation(value = "Supprimer un client par son ThirdPartyNumber", notes = "", nickname = "deleteById")
+    @ApiOperation(value = "Delete a customer by his ThirdPartyNumber", notes = "", nickname = "deleteById")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Client supprimé", response = ClientDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Client deleted", response = ClientDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 
     @DeleteMapping("/{thirdPartyNumber}")
-    public void deleteById(@ApiParam(value = "Numéro de tiers du client", required = true, defaultValue = "") @PathVariable long thirdPartyNumber) {
+    public void deleteById(@ApiParam(value = "Customer's third party number", required = true, defaultValue = "") @PathVariable long thirdPartyNumber) {
         clientService.deleteById(thirdPartyNumber);
     }
 
-    @ApiOperation(value = "Retourner un client par son ThirdPartyNumber", notes = "", nickname = "findById")
+    @ApiOperation(value = "Return a customer by their ThirdPartyNumber", notes = "", nickname = "findById")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Client trouvé", response = ClientDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "Client found", response = ClientDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 
     @GetMapping("/{thirdPartyNumber}")
-    public ClientDTO findById(@ApiParam(value = "Numéro de tiers du client", required = true, defaultValue = "") @PathVariable Long thirdPartyNumber) {
+    public ClientDTO findById(@ApiParam(value = "Customer's third party number", required = true, defaultValue = "") @PathVariable Long thirdPartyNumber) {
         return clientConverter.fromClientToClientDto(clientService.findById(thirdPartyNumber).get());
     }
 
-    @ApiOperation(value = "Retourner la liste des clients", notes = "", nickname = "findAll")
+    @ApiOperation(value = "Return the client list", notes = "", nickname = "findAll")
     @ApiResponses(value = {
 
-            @ApiResponse(code = 200, message = "Liste des clients trouvées", response = ClientDTO.class),
-            @ApiResponse(code = 400, message = "Syntaxe de la requete  est erronée"),
-            @ApiResponse(code = 401, message = "Non autorisés"),
-            @ApiResponse(code = 403, message = "Accès refusé"),
-            @ApiResponse(code = 404, message = "Ressource non trouvée"),
-            @ApiResponse(code = 500, message = "Erreur interne du serveur")
+            @ApiResponse(code = 200, message = "List of clients found", response = ClientDTO.class),
+            @ApiResponse(code = 400, message = "Syntax of the request is incorrect"),
+            @ApiResponse(code = 401, message = "Not allowed"),
+            @ApiResponse(code = 403, message = "Access denied"),
+            @ApiResponse(code = 404, message = "Resource not found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
 

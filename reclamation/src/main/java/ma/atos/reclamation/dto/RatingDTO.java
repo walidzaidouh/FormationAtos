@@ -10,10 +10,10 @@ import javax.validation.constraints.NotNull;
 @Data
 public class RatingDTO {
 
-    @NotNull(message = "id est obligatoire")
+    @NotNull(message = "Id is required")
     private Long id;
-    @NotBlank(message = "Commentaire est obligatoire")
+    @NotBlank(message = "Comment is required")
     private String commentaire;
-    @NotNull(message = "Note est obligatoire")
+    @NotNull(message = "Note is required")
     private Double notes;
 }
