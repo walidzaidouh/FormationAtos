@@ -4,7 +4,6 @@ package ma.atos.reclamation.controllers;
 import io.swagger.annotations.*;
 import ma.atos.reclamation.converter.CategoryConverter;
 import ma.atos.reclamation.dto.CategoryDTO;
-import ma.atos.reclamation.dto.ClientDTO;
 import ma.atos.reclamation.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

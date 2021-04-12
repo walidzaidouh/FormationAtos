@@ -2,7 +2,6 @@ package ma.atos.reclamation.controllers;
 
 import io.swagger.annotations.*;
 import ma.atos.reclamation.converter.ReclamationConverter;
-import ma.atos.reclamation.dto.ClientDTO;
 import ma.atos.reclamation.dto.ReclamationDTO;
 import ma.atos.reclamation.services.ReclamationService;
 import org.springframework.beans.factory.annotation.Autowired;
