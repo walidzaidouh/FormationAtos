@@ -75,7 +75,7 @@ public class RatingController {
         ratingService.deleteById(id);
     }
 
-    @ApiOperation(value = "Return a rating by its id", notes = "", nickname = "ReturnRating")
+    @ApiOperation(value = "Return a rating by id", notes = "", nickname = "ReturnRating")
     @ApiResponses(value = {
 
             @ApiResponse(code = 200, message = "Rating find", response = RatingDTO.class),

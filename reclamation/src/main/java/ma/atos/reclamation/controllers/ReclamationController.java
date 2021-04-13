@@ -37,7 +37,7 @@ public class ReclamationController {
         return reclamationConverter.reclamationToReclamationDto(reclamationService.add(reclamationConverter.reclamationDtoToReclamation(reclamationDTO)));
     }
 
-    @ApiOperation(value = "Modify a modification by its reference;", notes = "", nickname = "updateByReference")
+    @ApiOperation(value = "Modify a modification by reference;", notes = "", nickname = "updateByReference")
     @ApiResponses(value = {
 
             @ApiResponse(code = 200, message = "Claim Amended", response = ReclamationDTO.class),
@@ -57,7 +57,7 @@ public class ReclamationController {
         return reclamationConverter.reclamationToReclamationDto(reclamationService.update(reference, reclamationConverter.reclamationDtoToReclamation(reclamationDTO)));
     }
 
-    @ApiOperation(value = "Delete a complaint by its reference", notes = "", nickname = "deleteByReference")
+    @ApiOperation(value = "Delete a complaint by reference", notes = "", nickname = "deleteByReference")
     @ApiResponses(value = {
 
             @ApiResponse(code = 200, message = "Complaint deleted", response = ReclamationDTO.class),
