@@ -25,7 +25,7 @@ public class CategoryController {
     private CategoryConverter categoryConverter;
 
 
-    @ApiOperation(value = "Add a category", notes = "", nickname = "Addcategory")
+    @ApiOperation(value = "Add a category", notes = "", nickname = "AddCategory")
     @ApiResponses(value = {
 
             @ApiResponse(code = 201, message = "Category added", response = CategoryDTO.class),
@@ -44,7 +44,7 @@ public class CategoryController {
                 categoryConverter.fromCategoryDtoToCategory(categoryDto)));
     }
 
-    @ApiOperation(value = "Change a category by its id", notes = "", nickname = "updateById")
+    @ApiOperation(value = "Change a category by id", notes = "", nickname = "updateById")
     @ApiResponses(value = {
 
             @ApiResponse(code = 200, message = "Category Modified", response = CategoryDTO.class),
@@ -63,7 +63,7 @@ public class CategoryController {
                 (Id,categoryConverter.fromCategoryDtoToCategory(categoryDTO)));
     }
 
-    @ApiOperation(value = "Delete a category by its id", notes = "", nickname = "deleteById")
+    @ApiOperation(value = "Delete a category by id", notes = "", nickname = "deleteById")
     @ApiResponses(value = {
 
             @ApiResponse(code = 200, message = "Category deleted", response = CategoryDTO.class),
@@ -79,7 +79,7 @@ public class CategoryController {
         categoryService.deleteById(Id);
     }
 
-    @ApiOperation(value = "Return a category by its id", notes = "", nickname = "findById")
+    @ApiOperation(value = "Return a category by id", notes = "", nickname = "findById")
     @ApiResponses(value = {
 
             @ApiResponse(code = 200, message = "Category found", response = CategoryDTO.class),
