@@ -13,9 +13,10 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/agencies")
-public class AgencyController {
+public class AgencyRestTemplateController {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
+
 
 
     @GetMapping("/")
@@ -38,4 +39,15 @@ public class AgencyController {
         ServiceInstance serviceInstance = loadBalancerClient.choose("AGENCYMANAGMENT");
         return serviceInstance.getUri().toString();
     }
+
+
+
+
+
+
+
+
+
+
+
 }
