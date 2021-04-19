@@ -17,6 +17,6 @@ public class Reclamation extends AbstractEntity {
     private String reference;
     private String priority;
     private Date date;
-    private String gestionnaire;
     private String body;
+    private String agencyCode;
 }

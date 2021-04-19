@@ -14,8 +14,8 @@ public class ReclamationDTO {
     private String priority;
     @NotNull(message = "Date Note is required")
     private Date date;
-    @NotNull(message = "Manager Note is required")
-    private String gestionnaire;
     @NotNull(message = "Body is required")
     private String body;
+  @NotNull(message = "Agency code is required")
+   private String agencyCode;
 }

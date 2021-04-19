@@ -9,7 +9,7 @@ import java.util.List;
 public class AgencyDto implements Serializable {
 
 
-    private Long placeCode;
+    private String placeCode;
     private String name;
     private String bankCode;
     private String swiftCode;

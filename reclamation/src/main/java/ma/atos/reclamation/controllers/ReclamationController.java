@@ -3,6 +3,7 @@ package ma.atos.reclamation.controllers;
 import io.swagger.annotations.*;
 import ma.atos.reclamation.converter.ReclamationConverter;
 import ma.atos.reclamation.dto.ReclamationDTO;
+import ma.atos.reclamation.proxies.AgencyServiceProxy;
 import ma.atos.reclamation.services.ReclamationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,10 @@ import java.util.List;
 public class ReclamationController {
     @Autowired
     ReclamationService reclamationService;
-
     @Autowired
-    ReclamationConverter reclamationConverter;
+    private AgencyServiceProxy agencyServiceProxy;
+
+    ReclamationConverter reclamationConverter = new ReclamationConverter();
 
     @ApiOperation(value = "Add a complaint", notes = "", nickname = "AddReclamation")
     @ApiResponses(value = {
@@ -31,11 +33,18 @@ public class ReclamationController {
             @ApiResponse(code = 500, message = "Internal Server Error")
 
     })
-    // add reclamation method
+
     @PostMapping
-    public ReclamationDTO add(@ApiParam(value = "Claim to add", required = true)@Valid @RequestBody ReclamationDTO reclamationDTO) {
-        return reclamationConverter.reclamationToReclamationDto(reclamationService.add(reclamationConverter.reclamationDtoToReclamation(reclamationDTO)));
+    public String add(@ApiParam(value = "Claim to add", required = true) @RequestBody ReclamationDTO reclamationDTO) {
+        if(agencyServiceProxy.getAgencyByCode(reclamationDTO.getAgencyCode())!=null){
+            reclamationConverter.reclamationToReclamationDto(reclamationService.add(reclamationConverter.reclamationDtoToReclamation(reclamationDTO)));
+            return "New reclamation associated to agency: "+reclamationDTO.getAgencyCode()+", is created.";
+        }
+        return "Creating new reclamation failed, the agency: "+reclamationDTO.getAgencyCode()+" doesn't exists. ";
     }
+
+
+
 
     @ApiOperation(value = "Modify a modification by reference;", notes = "", nickname = "updateByReference")
     @ApiResponses(value = {
@@ -110,7 +119,7 @@ public class ReclamationController {
     // Get a list of all reclamation
     @GetMapping
     public List<ReclamationDTO> findAll() {
-
+        System.out.println("reclamation");
         return reclamationConverter.listReclamationToReclamationDto(reclamationService.findAll());
     }
 
